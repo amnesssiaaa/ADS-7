@@ -5,7 +5,7 @@
 #include "train.h"
 
 int main() {
-  static unsigned int seed = static_cast<unsigned int>(time(nullptr)); 
+  static unsigned int seed = static_cast<unsigned int>(time(nullptr));
   int count = 60;
   for (int n = 2; n <= count; n++) {
     Train trainOff;
@@ -23,7 +23,7 @@ int main() {
     Train trainRandom;
     n1 = n;
     while (n1--)
-      trainRandom.addCar(rand() % 2);
+      trainRandom.addCar(rand_r(&seed) % 2);
     trainRandom.getLength();
 
     std::cout << "кол-во вагонов = " << n

@@ -5,7 +5,7 @@
 #include "train.h"
 
 int main() {
-  srand(time(nullptr));
+  static unsigned int seed = static_cast<unsigned int>(time(nullptr)); 
   int count = 60;
   for (int n = 2; n <= count; n++) {
     Train trainOff;

@@ -36,7 +36,7 @@ int Train::getLength() {
       current = current->prev;
       countOp++;
     }
-    if (start->light == false) {
+    if (current == start && start->light == false) {
       return steps;
     }
   }

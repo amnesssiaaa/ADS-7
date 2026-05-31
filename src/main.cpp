@@ -1,15 +1,36 @@
 // Copyright 2022 NNTU-CS
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include "train.h"
 
 int main() {
-  Train train;
-  int count = 60; // кол-во вагонов
+  srand(time(nullptr));
+  int count = 60;
+  for (int n = 2; n <= count; n++) {
+    Train trainOff;
+    int n1 = n;
+    while (n1--)
+      trainOff.addCar(false);
+    trainOff.getLength();
 
-  while (count--)
-    train.addCar(false);
+    Train trainOn;
+    n1 = n;
+    while (n1--)
+      trainOn.addCar(true);
+    trainOn.getLength();
 
-  std::cout << train.getLength() << std::endl;
-  std::cout << train.getOpCount() << std::endl;
+    Train trainRandom;
+    n1 = n;
+    while (n1--)
+      trainRandom.addCar(rand() % 2);
+    trainRandom.getLength();
+
+    std::cout << "кол-во вагонов = " << n
+              << " выкл = " << trainOff.getOpCount()
+              << " вкл = " << trainOn.getOpCount()
+              << " рандом = " << trainRandom.getOpCount()
+              << std::endl;
+  }
   return 0;
 }

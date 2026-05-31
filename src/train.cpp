@@ -36,6 +36,7 @@ int Train::getLength() {
       current = current->prev;
       countOp++;
     }
+    // cppcheck-suppress knownConditionTrueFalse
     if (current == start && start->light == false) {
       return steps;
     }
